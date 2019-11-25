@@ -1,0 +1,22 @@
+{
+  "name": "venues",
+  "version": "1.0.0",
+  "description": "Mikrostoritev za urejanje, dodajanje in brisanje dvoran",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rso-event-manager/venues.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rso-event-manager/venues/issues"
+  },
+  "homepage": "https://github.com/rso-event-manager/venues#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
