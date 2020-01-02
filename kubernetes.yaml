@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: venues-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: venues
+  template:
+    metadata:
+      labels:
+        app: venues
+    spec:
+      containers:
+      - image: ribvid/rso-venues:1.0.0
+        name: venues
+        env:
+        - name: DATABASE_URL
+          value: mongodb://rso-venues:yGFWPf0oW7YB5MNGm2LI85IlOuImVLIEqr03zF2mTuv0sSkJjLdLScd4VzLyzT3FWOdNuwpd9VdtIHSgeJK3IA==@rso-venues.documents.azure.com:10255/?ssl=true&replicaSet=globaldb
+        ports:
+        - containerPort: 3000
+          name: server
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: venues
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 3000
+    protocol: TCP
+    targetPort: server
+  selector:
+    app: venues
+
