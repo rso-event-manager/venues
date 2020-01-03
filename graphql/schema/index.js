@@ -1,7 +1,7 @@
 const {buildSchema} = require('graphql')
 
 module.exports = buildSchema(`
-	type Venue {
+	type VenueType {
 		_id: ID!
 		name: String!
 		capacity: Int!
@@ -22,13 +22,13 @@ module.exports = buildSchema(`
 	}
 	
 	type RootQuery {
-		venues: [Venue!]!
-		venueById(id: String): Venue
+		venues: [VenueType!]!
+		venue(id: String): VenueType
 	}
 	
 	type RootMutation {
-		createVenue(venueInput: VenueInput): Venue
-		updateVenue(venueUpdateInput: VenueUpdateInput): Venue
+		createVenue(venueInput: VenueInput): VenueType
+		updateVenue(venueUpdateInput: VenueUpdateInput): VenueType
 		deleteVenue(_id: ID!): String
 	}
 	

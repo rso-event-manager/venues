@@ -1,7 +1,7 @@
 const Venue = require('../../models/venue')
 
 module.exports = {
-	venueById: (args) => {
+	venue: (args) => {
 		return Venue.findOne({_id: args.id})
 			.then(venue => {
 				return venue
