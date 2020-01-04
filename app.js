@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 app.use('/graphql', graphqlHttp({
 	schema: graphqlSchema,
 	rootValue: graphqlResolvers,
-	graphiql: true,
+	graphiql: false,
 }))
 
 mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true})

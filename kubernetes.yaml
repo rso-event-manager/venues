@@ -28,11 +28,11 @@ kind: Service
 metadata:
   name: venues
 spec:
-  type: LoadBalancer
+#  type: LoadBalancer
   ports:
-  - port: 3000
+  - port: 80
     protocol: TCP
-    targetPort: server
+    targetPort: 3000
   selector:
     app: venues
 

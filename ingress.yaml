@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: venues-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /graphql
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /venues
+            backend:
+              serviceName: venues
+              servicePort: 80
