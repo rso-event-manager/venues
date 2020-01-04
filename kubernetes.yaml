@@ -13,7 +13,7 @@ spec:
         app: venues
     spec:
       containers:
-      - image: ribvid/rso-venues:1.0.1
+      - image: ribvid/rso-venues:1.0.2
         name: venues
         env:
         - name: DATABASE_URL
