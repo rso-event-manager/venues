@@ -22,6 +22,7 @@ spec:
         - containerPort: 3000
           name: server
           protocol: TCP
+        imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service
