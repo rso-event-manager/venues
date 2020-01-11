@@ -3,10 +3,17 @@ kind: Ingress
 metadata:
   name: venues-ingress
   annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-production
     nginx.ingress.kubernetes.io/rewrite-target: /graphql
 spec:
+  tls:
+    - hosts:
+        - rso-aks-ingress.westeurope.cloudapp.azure.com
+      secretName: tls-secret-prd
   rules:
-    - http:
+    - host: rso-aks-ingress.westeurope.cloudapp.azure.com
+      http:
         paths:
           - path: /venues
             backend:
